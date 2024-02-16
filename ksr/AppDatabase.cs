@@ -18,5 +18,6 @@ namespace ksr
         }
       public DbSet<User> User {  get; set; }
       public DbSet<Produk> Produk {  get; set; }
+      public DbSet<Pelanggan> Pelanggan{  get; set; }
     }
 }

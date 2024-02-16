@@ -5,8 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ksr"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
         Title="KasirPage" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="101*"/>
+            <RowDefinition Height="176*"/>
+            <RowDefinition Height="86*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel HorizontalAlignment="Left">
+                <Label Content="APLIKASI KASIR"></Label>
+                <Label Content="PETUGAS/KASIR"></Label>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right">
+                <Label Width="200" Content="Pelanggan"></Label>
+                <ComboBox ItemsSource="{Binding DataPelanggan}" DisplayMemberPath="Nama"></ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Left">
+                <Label Width="200" x:Name="tanggal" Content="Tanggal, "></Label>
+                <Label Margin="0,20,0,0" Content="Kode/Nama Barang"></Label>
+                <ComboBox SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding DataProduk}" DisplayMemberPath="Nama"></ComboBox>
+            </StackPanel>
+            <Grid Width="300" Background="Silver" HorizontalAlignment="Right">
+                <Label Content="TOTAL"></Label>
+                <Label x:Name="total" Content="150.000,00" 
+                       VerticalAlignment="Center"
+                       FontSize="40"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Right"></Label>
+            </Grid>
+        </Grid>
+        <StackPanel  Grid.Row="2" Margin="0,20">
+            <DataGrid x:Name="dg" SizeChanged="dg_SizeChanged" CurrentCellChanged="dg_CurrentCellChanged"  ItemsSource="{Binding Detail}"  
+                      CanUserAddRows="False"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Kode" Binding="{Binding Produk.ID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Nama Brang" Binding="{Binding Produk.Nama}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Harga" Binding="{Binding Produk.Harga}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Jumlah" Binding="{Binding Jumlah}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Sub Total" Binding="{Binding SubTotal}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="89*"/>
+                <ColumnDefinition Width="134*"/>
+                <ColumnDefinition Width="128*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+                <Label Height="25" Margin="2" 
+                       Content="Sub Total" ></Label>
+                <Label Height="25"  Content="Bayar" Margin="2"></Label>
+                <Label Height="25"  Content="Kembalian" Margin="2"></Label>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Bottom">
+                <TextBox IsReadOnly="True" x:Name="total2" Height="25"  Margin="2"></TextBox>
+                <TextBox TextChanged="bayar_TextChanged" x:Name="bayar" Height="25"  Margin="2"></TextBox>
+                <TextBox IsReadOnly="True" x:Name="kembalian" Height="25"  Margin="2"></TextBox>
+            </StackPanel>
+            <Button Content="Simpan/Baru"  VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left" Width="150" Height="50"
+                    Grid.Column="2" Margin="20,18,0,18"/>
+            <Button
+                Content="Keluar" HorizontalAlignment="Left" Width="150" Height="50" VerticalAlignment="Bottom" Grid.Column="3" Margin="106,18,0,18"/>
+        </Grid>
+
+
     </Grid>
 </Window>

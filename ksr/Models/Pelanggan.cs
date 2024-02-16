@@ -6,7 +6,7 @@
 
         public string Nama  { get; set; }
         public string Alamat { get; set; }
-        public string Telepon { get; set; }
+        public string NomorTelepon { get; set; }
 
     }
 

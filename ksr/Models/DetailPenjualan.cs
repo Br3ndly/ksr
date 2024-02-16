@@ -15,6 +15,6 @@ namespace ksr.Models
 
         public int Jumlah { get; set; }
 
-        public double SubTotal { get; set; }
+        public double SubTotal => Jumlah * Produk.Harga;
     }
 }
