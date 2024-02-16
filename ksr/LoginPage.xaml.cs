@@ -35,16 +35,29 @@ namespace ksr
                     this.Close();
                 }
                 else
-                {
+            {
+                var winAdmin = new MainWindow();
+                winAdmin.Show();
 
                     throw new SystemException();
-                }
+            }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Anda tidak memiliki akses !", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+
+            // kalau kasir 
+            //tampilkan halaman kasir
+
+
+
+            ////halaman logint tutup
+
+
+            this.Close();
         }
     }
 }
