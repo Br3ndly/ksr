@@ -23,7 +23,7 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Right">
                 <Label Width="200" Content="Pelanggan"></Label>
-                <ComboBox ItemsSource="{Binding DataPelanggan}" DisplayMemberPath="Nama"></ComboBox>
+                <ComboBox x:Name="cmbPelanggan" ItemsSource="{Binding DataPelanggan}" DisplayMemberPath="Nama"></ComboBox>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
@@ -72,7 +72,7 @@
                 <TextBox TextChanged="bayar_TextChanged" x:Name="bayar" Height="25"  Margin="2"></TextBox>
                 <TextBox IsReadOnly="True" x:Name="kembalian" Height="25"  Margin="2"></TextBox>
             </StackPanel>
-            <Button Content="Simpan/Baru"  VerticalAlignment="Bottom"
+            <Button Click="btnSimpan" Content="Simpan/Baru"  VerticalAlignment="Bottom"
                     HorizontalAlignment="Left" Width="150" Height="50"
                     Grid.Column="2" Margin="20,18,0,18"/>
             <Button

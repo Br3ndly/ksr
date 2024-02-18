@@ -6,11 +6,7 @@ namespace ksr.Models
     {
         public int Id { get; set; }
 
-
-        [ForeignKey("Penjualan_Id")]
-        public Penjualan Penjualan { get; set;}
-
-        [ForeignKey("Produk_id")]
+        public Penjualan Penjualan { get; set; }
         public Produk Produk { get; set; }
 
         public int Jumlah { get; set; }

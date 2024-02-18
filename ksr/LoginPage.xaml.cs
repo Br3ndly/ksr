@@ -32,6 +32,8 @@ namespace ksr
                             var kasirpage = new KasirPage();
                             kasirpage.Show();
                     }
+
+                    UserLogin.UserYangLogin = user;
                     this.Close();
                 }
                 else
