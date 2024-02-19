@@ -1,17 +1,6 @@
 ﻿using ksr.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ksr
 {
@@ -137,5 +126,36 @@ namespace ksr
         {
 
         }
+
+        private void btnSimpan(object sender, RoutedEventArgs e)
+        {
+            var penjualan = new Penjualan
+            {
+                Pelanggan = cmbPelanggan.SelectedItem as Pelanggan,
+              Detail=Detail,
+                Tanggal = DateTime.Now,
+                User = UserLogin.UserYangLogin,
+                TotalHarga = Detail.Sum(x => x.SubTotal)
+            };
+
+
+            database.Penjualan.Add(penjualan);
+            database.Entry(penjualan.User).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            database.SaveChanges();
+
+            ClearData();
+        }
+        private void ClearData()
+        {
+            cmbPelanggan.SelectedItem = null;
+            Detail.Clear();
+            total.Content = "0";
+            total2.Text= "0";
+            kembalian.Text = "0";
+            bayar.Text = "0";
+            dg.Items.Refresh();    
+
+        }
     }
+
 }

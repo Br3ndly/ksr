@@ -52,7 +52,9 @@ namespace ksr
 
         private void btnlogout_Click(object sender, RoutedEventArgs e)
         {
-
+            var loginPage = new LoginPage();
+            loginPage.Show();
+            this.Close();
         }
     }
 }
