@@ -8,7 +8,29 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PenjualanPage">
 
-    <Grid>
-        
+    <Grid Background="#6c6483">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Background="#6c6483" ItemsSource="{Binding DataProduk}"  x:Name="datagrid" Grid.RowSpan="2" Grid.Row="1" AutoGenerateColumns="False">
+
+            <DataGrid.Columns >
+                <DataGridTextColumn Width="*" Header="Kode" Binding="{Binding ID}"/>
+                <DataGridTextColumn Width="*" Header="Nama Barang" Binding="{Binding Nama}"/>
+                <DataGridTextColumn Width="*" Header="Harga" Binding="{Binding Harga,StringFormat='N2'}"/>
+                <DataGridTextColumn Width="*" Header="Stok" Binding="{Binding Stok}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="btntambah" FontSize="15" Content="Tambah"  HorizontalAlignment="Center" Width="113" Height="23" Margin="5"
+                 BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" />
+            <Button x:Name="btnhapus" FontSize="15" Content="Hapus"  HorizontalAlignment="Center" Width="113" Height="23"
+             BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" />
+        </WrapPanel>
+
     </Grid>
 </Page>

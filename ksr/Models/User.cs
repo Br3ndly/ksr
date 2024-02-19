@@ -16,7 +16,9 @@ namespace ksr.Models
         public string UserName { get; set; }
 
         public string Password { get; set; }
-        public Privilage Previlage { get; set; }
+        public Privilage Privilage { get; set; }
 
     }
+     
+    
 }

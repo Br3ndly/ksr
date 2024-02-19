@@ -33,36 +33,38 @@ namespace ksr
             DataProduk = appDatabase.Produk.ToList();
         }
 
-        private void btntambah_Click(object sender, RoutedEventArgs e)
-        {
+            private void btnhapus_Click(object sender, RoutedEventArgs e)
+            {
             try
-            {
-
-                appDatabase.Produk.AttachRange(DataProduk);
-                appDatabase.SaveChanges();
-                MessageBox.Show("sukses");
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Periksa Data");
-            }
-        }
-
-        private void btnhapus_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
+                {
                 var data = datagrid.SelectedItem as Produk;
                 appDatabase.Produk.RemoveRange(data);
                 appDatabase.SaveChanges();
                 DataProduk.Remove(data);
                 datagrid.Items.Refresh();
-            }
+                }
 
             catch (Exception)
-            {
+                {
                 MessageBox.Show("Maaf Terjadi Kesalahan", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
+        private void btnsimpan_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                try
+                {
+
+                    appDatabase.Produk.AttachRange(DataProduk);
+                    appDatabase.SaveChanges();
+                    MessageBox.Show("sukses");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Periksa Data");
+                }
             }
         }
     }

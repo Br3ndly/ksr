@@ -26,8 +26,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Button x:Name="btntambah" FontSize="15" Content="Tambah"  HorizontalAlignment="Center" Width="113" Height="23" Margin="5"
-                    BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" Click="btntambah_Click"/>
+            <Button x:Name="btnsimpan" FontSize="15" Content="Simpan"  HorizontalAlignment="Center" Width="113" Height="23" Margin="5"
+                    BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" Click="btnsimpan_Click"/>
             <Button x:Name="btnhapus" FontSize="15" Content="Hapus"  HorizontalAlignment="Center" Width="113" Height="23"
                 BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" Click="btnhapus_Click"/>
         </WrapPanel>

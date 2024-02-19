@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserPage">
 
-    <Grid Background="White">
+    <Grid Background="#6c6483">
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="43*"/>
@@ -16,7 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid ItemsSource="{Binding DataUser}"  x:Name="datagrid" Grid.RowSpan="2" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid Background="#6c6483" ItemsSource="{Binding DataUser}"  x:Name="datagrid" Grid.Row="1" AutoGenerateColumns="False">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Width="200" Header="ID" Binding="{Binding Id}"/>
@@ -25,9 +25,11 @@
                 <DataGridTextColumn Width="150" Header="PRIVILAGE" Binding="{Binding Previlage}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <WrapPanel HorizontalAlignment="Right">
-        <Button x:Name="btnsimpan" Margin="2" Content="Simpan" HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Height="53" Click="btnsimpan_Click"/>
-        <Button x:Name="btnhapus" Margin="2" Content="Hapus" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="113" Height="53" Click="btnhapus_Click"/>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="btnsimpan" FontSize="15" Content="Simpan"  HorizontalAlignment="Center" Width="113" Height="23" Margin="5"
+            BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" Click="btnsimpan_Click"/>
+            <Button x:Name="btnhapus" FontSize="15" Content="Hapus"  HorizontalAlignment="Center" Width="113" Height="23"
+        BorderBrush="{x:Null}" Background="{x:Null}" FontStyle="Italic" Foreground="#FFF1B253" Click="btnhapus_Click"/>
         </WrapPanel>
 
     </Grid>

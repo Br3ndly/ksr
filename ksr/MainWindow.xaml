@@ -5,32 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ksr"
         mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="76*"/>
-        </Grid.RowDefinitions>
+    <Grid Background="#58516b">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="171*"/>
+            <ColumnDefinition Width="629*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1">
-            <Button x:Name="btnhome" FontSize="15" Height="25" Content="Home" Margin="3,0,3,3" HorizontalContentAlignment="Left" Click="btnhome_Click" />
-            <Button x:Name="btnproduk" FontSize="15" Height="25" Content="Produk" Margin="3" HorizontalContentAlignment="Left" Click="btnproduk_Click"/>
-            <Button x:Name="btnpenjualan" FontSize="15" Height="25" Content="Penjualan" Margin="3" HorizontalContentAlignment="Left" Click="btnpenjualan_Click"/>
-            <Button x:Name="btnpelangan" FontSize="15" Height="25" Content="Pelanggan" Margin="3" HorizontalContentAlignment="Left" Click="btnpelangan_Click"/>
-            <Button x:Name="btnuser" FontSize="15" Height="25" Content="User" Margin="3" HorizontalContentAlignment="Left" Click="btnuser_Click"/>
-            <Button x:Name="btnlogout" FontSize="15" Height="25" Content="Loguot" Margin="3" HorizontalContentAlignment="Left" Click="btnlogout_Click"/>
-
-
-
-        </StackPanel>
-        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
-            <Frame x:Name="frame" Content="" NavigationUIVisibility="Hidden"/>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32*"/>
+                <RowDefinition Height="185*"/>
+            </Grid.RowDefinitions>
+            <Label FontSize="30" Content="APLIKASI KASIR" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" Grid.Row="0" Foreground="White"/>
+            <Label FontSize="30" Content="ADMINISTRATOR" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Bottom" Foreground="White" Grid.Row="0"/>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="btnhome" FontSize="15" Height="25" Content="Home" Padding="7,0,0,0" Margin="0,3" HorizontalContentAlignment="Left" Click="btnhome_Click" Foreground="#FFF1B253" Background="#FF6C6483" />
+                <Button x:Name="btnproduk" FontSize="15" Height="25" Content="Produk" Padding="7,0,0,0" Margin="0,3" HorizontalContentAlignment="Left" Click="btnproduk_Click" Foreground="#FFF1B253" Background="#FF6C6483"/>
+                <Button x:Name="btnpenjualan" FontSize="15" Height="25" Content="Penjualan" Padding="7,0,0,0" Margin="0,3" HorizontalContentAlignment="Left" Click="btnpenjualan_Click" Foreground="#FFF1B253" Background="#FF6C6483"/>
+                <Button x:Name="btnpelangan" FontSize="15" Height="25" Content="Pelanggan" Padding="7,0,0,0" Margin="0,3" HorizontalContentAlignment="Left" Click="btnpelangan_Click" Foreground="#FFF1B253" Background="#FF6C6483"/>
+                <Button x:Name="btnuser" FontSize="15" Height="25" Content="User" Padding="7,0,0,0" Margin="0,3" HorizontalContentAlignment="Left" Click="btnuser_Click" Foreground="#FFF1B253" Background="#FF6C6483"/>
+                <Button x:Name="btnlogout" FontSize="15" Height="25" Content="Loguot" Padding="7,0,0,0" Margin="0,3" HorizontalContentAlignment="Left" Click="btnlogout_Click" Foreground="#FFF1B253" Background="#FF6C6483"/>
+            </StackPanel>
 
         </Grid>
-        
-            
+
+
+        <Frame x:Name="frame" Grid.Column="1">
+
+        </Frame>
+
+
+
+
+
     </Grid>
 </Window>

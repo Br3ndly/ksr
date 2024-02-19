@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ksr"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="LoginPage" Height="417" Width="490">
     <Grid Margin="0,0,0,-6">
         <Label FontSize="25" Content="APLIKASI KASIR" 

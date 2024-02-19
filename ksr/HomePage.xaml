@@ -8,8 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage">
 
-    <Grid>
-        <Label Content="SELAMAT DATANG  DI APLIKASI KASIR" HorizontalAlignment="Center" Margin="0,183,0,225" Foreground="Black" Background="{x:Null}"/>
+    <Grid Background="#6c6483">
+        <Label Content="SELAMAT DATANG" HorizontalContentAlignment="Center" Margin="0,199,0,225" Foreground="Black" Background="{x:Null}"/>
+        <Label Content="DI APLIKASI KASIR" HorizontalContentAlignment="Center" Margin="0,246,0,175" Foreground="Black" Background="{x:Null}"/>
 
     </Grid>
 </Page>

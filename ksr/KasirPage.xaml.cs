@@ -41,14 +41,21 @@ namespace ksr
         {
             ComboBox cb = (ComboBox)sender;
             var selected = (Produk)cb.SelectedItem;
-            if(selected != null)
+            if (selected != null)
             {
-                Detail.Add(new DetailPenjualan() { Jumlah = 1, Produk = selected });
+                if(Detail.Count(x => x.Produk.ID == selected.ID) > 0)
+                {
+                    var detail = Detail.FirstOrDefault(x => x.Produk.ID == selected.ID);
+                    detail.Jumlah += 1;
+                }
+                else
+                {
+                    Detail.Add(new DetailPenjualan() { Jumlah = 1, Produk = selected });
+                }
             }
-            dg.Items.Refresh();
-
+            gridChange();
         }
-
+          
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             gridChange();
@@ -64,16 +71,71 @@ namespace ksr
             gridChange();
         }
 
-        private void dg_CurrentCellChanged(object sender, EventArgs e)
-        {
-            gridChange();
-        }
+       
 
-        public void gridChange()
+        public async Task gridChange()
         {
             total.Content = Detail.Sum(x => x.SubTotal);
             total2.Text = Detail.Sum(x => x.SubTotal).ToString();
+            await Task.Delay(500);
             dg.Items.Refresh();
+            cmbProduk.SelectedItem = null;
+        }
+
+        private void btnSimpan_click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                if (cmbPelanggan.SelectedItem == null)
+                {
+                    throw new SystemException("pilih Pelanggan");
+                }
+
+                if (dg.Items.Count == 0)
+                {
+                    throw new SystemException("Anda belum menginput barang");
+                }
+
+                var penjualan = new Penjualan
+                {
+                    Pelanggan = cmbPelanggan.SelectedItem as Pelanggan,
+                    Detail = Detail,
+                    Tanggal = DateTime.Now,
+                    User = UserLogin.UserYangLogin
+                };
+
+                database.Penjualan.Attach(penjualan);
+                database.Entry(penjualan.User).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+                database.SaveChanges();
+                MessageBox.Show("Data berhasil disimpan");
+                ClearData();
+            }
+            catch  (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }   
+        private void ClearData()
+        {
+            cmbPelanggan.SelectedItem = null;
+            cmbProduk.SelectedItem = null;
+            Detail.Clear();
+            total.Content = "0";
+            total2.Text = "0";
+            kembalian.Text = "0";
+            bayar.Text = "0";
+            dg.Items.Refresh();
+        }
+
+         private void dg_CurrentCellChanged(object sender, EventArgs e)
+         {
+           gridChange();
+         }
+
+        private void btnKeluar_click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

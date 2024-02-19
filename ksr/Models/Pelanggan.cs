@@ -1,7 +1,10 @@
-﻿namespace ksr.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ksr.Models
 {
     public class Pelanggan
     {
+        [Key]
         public int Id { get; set; }
 
         public string Nama  { get; set; }

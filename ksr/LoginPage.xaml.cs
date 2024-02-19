@@ -22,7 +22,8 @@ namespace ksr
                 var user = appdatabase.User.Where(x => x.UserName == this.TextBoxUsername.Text).FirstOrDefault();
                 if (user != null && user.Password == this.PasswordBoxPass.Password)
                 {
-                    if (user.Previlage == Privilage.Administrator)
+                    UserLogin.UserYangLogin = user;
+                    if (user.Privilage == Privilage.Administrator)
                     {
                         var adminpage = new MainWindow();
                         adminpage.Show();
@@ -49,15 +50,9 @@ namespace ksr
             }
 
 
-            // kalau kasir 
-            //tampilkan halaman kasir
+         
 
 
-
-            ////halaman logint tutup
-
-
-            this.Close();
         }
     }
 }
